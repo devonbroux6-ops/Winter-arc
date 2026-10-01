@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b0d">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+  <title>Winter Arc</title>
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <div>
+        <p class="eyebrow">OCTOBRE → DÉCEMBRE</p>
+        <h1>❄️ Winter Arc</h1>
+        <p id="todayLabel" class="muted"></p>
+      </div>
+      <div class="streak"><span>🔥</span><strong id="streak">0</strong><small>jours</small></div>
+    </header>
+
+    <section class="hero card">
+      <div>
+        <p class="muted">Progression du jour</p>
+        <h2 id="progressText">0 / 10 objectifs</h2>
+      </div>
+      <div class="ring"><span id="progressPct">0%</span></div>
+    </section>
+
+    <nav class="tabs">
+      <button class="tab active" data-page="home">Aujourd'hui</button>
+      <button class="tab" data-page="stats">Stats</button>
+      <button class="tab" data-page="settings">Réglages</button>
+    </nav>
+
+    <section id="home" class="page active">
+      <div class="section-title"><h2>Objectifs</h2><button id="resetDay" class="ghost">Réinitialiser</button></div>
+
+      <article class="goal card">
+        <div class="goal-icon">😴</div><div class="goal-main"><b>Sommeil</b><span>Objectif : 8 h</span>
+          <div class="input-row"><input id="sleep" type="number" min="0" max="24" step="0.1" placeholder="0"><span>heures</span><button data-action="saveSleep">✓</button></div>
+        </div>
+      </article>
+
+      <article class="goal card">
+        <div class="goal-icon">💧</div><div class="goal-main"><b>Eau</b><span id="waterLabel">0 / 2 L</span>
+          <div class="waterbar"><i id="waterFill"></i></div>
+          <div class="water-buttons"><button data-water="-0.25">− 250 ml</button><button data-water="0.25">+ 250 ml</button></div>
+        </div>
+      </article>
+
+      <article class="goal card">
+        <div class="goal-icon">👟</div><div class="goal-main"><b>Pas</b><span>Objectif : 6 000</span>
+          <div class="input-row"><input id="steps" type="number" min="0" step="100" placeholder="0"><span>pas</span><button data-action="saveSteps">✓</button></div>
+        </div>
+      </article>
+
+      <article class="goal card">
+        <div class="goal-icon">🏋️</div><div class="goal-main"><b>Sport</b><span id="workoutName">Repos</span>
+          <button id="workoutBtn" class="wide">Marquer la séance comme faite</button>
+        </div>
+      </article>
+
+      <div class="checks">
+        <div class="section-title"><h2>Discipline</h2></div>
+        <label class="check card"><input id="nofast" type="checkbox"><span>🍔 Pas de fast-food</span><em>✓</em></label>
+        <label class="check card"><input id="nocandy" type="checkbox"><span>🍬 Pas de bonbons</span><em>✓</em></label>
+        <label class="check card"><input id="nosoda" type="checkbox"><span>🥤 Pas de soda</span><em>✓</em></label>
+        <label class="check card"><input id="humble" type="checkbox"><span>🤝 Rester humble</span><em>✓</em></label>
+        <label class="check card"><input id="honest" type="checkbox"><span>🗣️ Ne pas mentir</span><em>✓</em></label>
+        <label class="check card"><input id="school" type="checkbox"><span>📚 Lycée : travail fait</span><em>✓</em></label>
+      </div>
+    </section>
+
+    <section id="stats" class="page">
+      <div class="section-title"><h2>📊 Statistiques</h2></div>
+      <div class="stats-grid">
+        <div class="stat card"><span>🔥 Streak</span><b id="sStreak">0</b><small>jours</small></div>
+        <div class="stat card"><span>😴 Sommeil</span><b id="sSleep">0 h</b><small>moyenne</small></div>
+        <div class="stat card"><span>👟 Pas</span><b id="sSteps">0</b><small>moyenne</small></div>
+        <div class="stat card"><span>🏋️ Sport</span><b id="sWorkout">0</b><small>séances</small></div>
+      </div>
+      <article class="card calendar-card">
+        <h3>Calendrier</h3><div id="calendar" class="calendar"></div>
+      </article>
+      <article class="card">
+        <h3>Jours réussis</h3><p id="successfulDays" class="big-number">0</p><p class="muted">Un jour est compté comme réussi lorsque tous les objectifs du jour sont validés.</p>
+      </article>
+    </section>
+
+    <section id="settings" class="page">
+      <div class="section-title"><h2>⚙️ Réglages</h2></div>
+      <article class="card settings">
+        <h3>Ton Winter Arc</h3>
+        <p>1er octobre → 31 décembre</p>
+        <div class="setting"><span>Sommeil</span><b>8 h</b></div>
+        <div class="setting"><span>Eau</span><b>2 L</b></div>
+        <div class="setting"><span>Pas</span><b>6 000</b></div>
+        <div class="setting"><span>Sport</span><b>4× / semaine</b></div>
+      </article>
+      <article class="card">
+        <h3>💾 Données</h3>
+        <button id="exportBtn" class="wide">Exporter mes données</button>
+        <button id="clearBtn" class="wide danger">Effacer toutes les données</button>
+      </article>
+    </section>
+
+    <footer>Winter Arc • V1</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
